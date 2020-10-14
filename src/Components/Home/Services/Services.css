@@ -1,0 +1,14 @@
+.service-style{
+  
+}
+
+
+.service-style:hover{
+  /* width: 370px; */
+  
+  background: #FFFFFF;
+  box-shadow: 0px 4px 80px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
