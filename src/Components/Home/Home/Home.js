@@ -1,4 +1,5 @@
 import React from 'react';
+import Contact from '../Contact/Contact';
 import Header from '../Header/Header';
 import Portfolio from '../Portfolio/Portfolio';
 import Services from '../Services/Services';
@@ -11,6 +12,7 @@ const Home = () => {
       <Services/>
       <Portfolio/>
       <Testimonials/>
+      <Contact/>
       
     </div>
   );
