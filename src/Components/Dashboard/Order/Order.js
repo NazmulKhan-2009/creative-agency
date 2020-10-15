@@ -4,64 +4,77 @@ import { useForm } from 'react-hook-form';
 // import { Link, useHistory, useParams } from 'react-router-dom';
 import { userContext } from '../../../App';
 
-import webDesign from '../../../images/icons/service1.png'
-import graphicDesign from '../../../images/icons/service2.png'
-import webDev from '../../../images/icons/service3.png'
 import { useHistory, useParams } from 'react-router-dom';
 
-const serviceData = [
-  {
-      serviceName: 'Web & Mobile design',
-      img: webDesign,
-      detail:'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.'
-  },
-  {
-      serviceName: 'Graphic design',
-      img: graphicDesign,
-      detail:'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
-  },
-  {
-      serviceName: 'Web development',
-      img: webDev,
-      detail:'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
-  }
-]
+
 
 const Order = () => {
   const {productKey}=useParams()
   console.log( productKey)
+  
   // const [product, setProduct]=useEffect([])
   const [sidenav, setSidenav]=useState(true)
   const { register, handleSubmit, watch, errors } = useForm();
   const [loggedInuser, setloggedInUser]=useContext(userContext)
-  const [service, setService]=useState({})
-console.log( service)
+  const [getService, setGetService]=useState({})
+console.log(getService.name )
+//   const selectedService=getService[productKey]
+// console.log(selectedService)
+
+  // const selectedService=getService.find(service=>service.name===productKey)
+  // console.log(selectedService);
+
   
-  useEffect(()=>{
-   setService(serviceData[productKey-1])
+  
+useEffect(()=>{
+  fetch('http://localhost:4000/services')
+  .then(res=>res.json())
+  .then(data=>setGetService(data[productKey]))
 
 
-  },[productKey])
-
-    
-  let history = useHistory();
-
-  const onSubmit=()=>{
-    history.push("/service");
-    // const details={
-    //   email:loggedInuser.email,
-    //   name:loggedInuser.name,
-    //   date:data.date,
-    //   title:data.Event,
-    //   task:data.Task,
-    //   // image:events.image
-    // }
-    // console.log( details)
-
-    // setProduct(serviceData)
+},[productKey])
 
     
-  }
+
+ 
+
+  // let history = useHistory();
+
+  const onSubmit=(data)=>{
+    
+    
+    const details={
+      email:loggedInuser.email,
+      name:loggedInuser.name,      
+      service:data.service,
+      description:data.details,
+      price:data.price,
+      image:getService.img
+    }
+    console.log( details)
+
+    fetch("http://localhost:4000/serviceAdd",{
+    method: 'POST',
+    headers: {
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify(details)
+  })
+  .then(res=>res.json())
+  .then(data=>{ console.log(data)
+    if(data){
+      console.log( "data grabbed")
+      // processOrder()
+      //   alert("Your Order is succesfully")
+    }
+  })
+
+    // history.push("/dashboard");
+    
+      
+    
+    
+}
 
 
   return (
@@ -96,26 +109,22 @@ console.log( service)
 
               <label>
                 
-                <input type="text" name="Event" className="form-control" defaultValue={service.serviceName} ref={register({ required: true })}/>
+                <input type="text" name="service" className="form-control" defaultValue={getService.name} ref={register({ required: true })}/>
               </label>
 
                <label>
                  
-                <textarea name="text" className="form-control" id="" cols="10" rows="2" placeholder="Project Details"></textarea>
+                <textarea type="text" name='details' className="form-control" defaultValue={getService.description} id="" cols="10" rows="2" placeholder="Project Details" ref={register({ required: true })}></textarea>
               </label>
             
 
-              <div className="row">
-               <div className="col-md-5">
-                <input type="text" className="form-control"  name="price" placeholder="Price"  />
-               </div>
-
-               <div className="col-md-7">
-               
-                <input type="File" className="form-control" name="file" />
               
-               </div> 
-               </div>
+               
+                <input type="number" className="form-control w-50 "  name="price" placeholder="Price" ref={register({ required: true })} />
+               
+
+              
+               
                
               
               <button className="btn btn-dark mt-5" type="submit" value="Send">Send</button>
