@@ -8,17 +8,20 @@ import ServiceDetail from '../ServiceDetail/ServiceDetail';
 
 const serviceData = [
     {
-        name: 'Web & Mobile design',
+        key:1,
+        serviceName: 'Web & Mobile design',
         img: webDesign,
         detail:'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.'
     },
-    {
-        name: 'Graphic design',
+    {   
+        key:2,
+        serviceName: 'Graphic design',
         img: graphicDesign,
         detail:'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
     },
     {
-        name: 'Web development',
+        key:3,
+        serviceName: 'Web development',
         img: webDev,
         detail:'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
     }
@@ -34,7 +37,7 @@ const Services = () => {
             <div className="d-flex justify-content-center container">
             <div className="w-75 row mt-5 pt-5">
                 {
-                    serviceData.map(service => <ServiceDetail service={service} key={service.name}></ServiceDetail>)
+                    serviceData.map(service => <ServiceDetail service={service} key={service.key}/>)
                 }
             </div>
         </div>

@@ -24,16 +24,16 @@ const Slide=()=> {
         
         <Slider {...settings}>
           <div>
-            <img src={carousel1} alt="" width="400px"/>
+            <img className="img-fluid" src={carousel1} alt="" width="400px"/>
           </div>
           <div>
-          <img src={carousel2} alt="" width="400px"/>
+          <img className="img-fluid" src={carousel2} alt="" width="400px"/>
           </div>
           <div>
-          <img src={carousel3} alt="" width="400px"/>
+          <img className="img-fluid" src={carousel3} alt="" width="400px"/>
           </div>     
           <div>
-          <img src={carousel4} alt="" width="400px"/>
+          <img className="img-fluid" src={carousel4} alt="" width="400px"/>
           </div>
         </Slider>
       </div>

@@ -17,3 +17,11 @@
   color:gray;
   font-size:10px
 }
+@media (max-width: 576px) { 
+  .portfolio-style{
+    background-color: #111430;
+    width: 100%;
+    height: 400px;
+  
+  }
+ }

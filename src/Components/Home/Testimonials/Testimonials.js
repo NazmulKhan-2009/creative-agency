@@ -7,19 +7,19 @@ import BriaMalone from '../../../images/customer-3.png'
 
 const testimonialData = [
     {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
+        quote : 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.',
         name : 'Nash Patrik',
         designation : 'CEO, Manpol',
         img : NashPatrik
     },
     {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
+        quote : 'Amazing flyers, social media posts and brand representations that would make your brand stand out. ',
         name : 'Miriam Barron',
         designation : 'CEO, Manpo',
         img : MiriamBarron
     },
     {
-        quote : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic non architecto nobis, adipisci recusandae repellat accusantium consequuntur, qui nisi deserunt blanditiis mollitia, illo! ',
+        quote : 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general. ',
         name : 'Bria Malone',
         designation : 'CEO, Manpol',
         img : BriaMalone
