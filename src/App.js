@@ -42,9 +42,9 @@ function App() {
             <Login/>
           </Route>
 
-          {/* <Route path="/dashboard">
+          <PrivateRouter path="/dashboard">
             <Dashboard/>
-          </Route> */}
+          </PrivateRouter>
 
           
 

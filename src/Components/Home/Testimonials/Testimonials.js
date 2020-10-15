@@ -1,32 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import Testimonial from '../Testimonial/Testimonial';
 import './Testimonials.css';
-import NashPatrik from '../../../images/customer-1.png'
-import MiriamBarron from  '../../../images/customer-2.png'
-import BriaMalone from '../../../images/customer-3.png'
+// import NashPatrik from '../../../images/customer-1.png'
+// import MiriamBarron from  '../../../images/customer-2.png'
+// import BriaMalone from '../../../images/customer-3.png'
 
-const testimonialData = [
-    {
-        quote : 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.',
-        name : 'Nash Patrik',
-        designation : 'CEO, Manpol',
-        img : NashPatrik
-    },
-    {
-        quote : 'Amazing flyers, social media posts and brand representations that would make your brand stand out. ',
-        name : 'Miriam Barron',
-        designation : 'CEO, Manpo',
-        img : MiriamBarron
-    },
-    {
-        quote : 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general. ',
-        name : 'Bria Malone',
-        designation : 'CEO, Manpol',
-        img : BriaMalone
-    }
-]
+// const testimonialData = [
+//     {
+//         quote : 'We craft stunning and amazing web UI, using a well drrafted UX to fit your product.',
+//         name : 'Nash Patrik',
+//         designation : 'CEO, Manpol',
+//         img : NashPatrik
+//     },
+//     {
+//         quote : 'Amazing flyers, social media posts and brand representations that would make your brand stand out. ',
+//         name : 'Miriam Barron',
+//         designation : 'CEO, Manpo',
+//         img : MiriamBarron
+//     },
+//     {
+//         quote : 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general. ',
+//         name : 'Bria Malone',
+//         designation : 'CEO, Manpol',
+//         img : BriaMalone
+//     }
+// ]
 
 const Testimonials = () => {
+
+    const [testimonialData, setTestimonialData]=useState([])
+    useEffect(()=>{
+        fetch('http://localhost:4000/reviews')
+        .then(res=>res.json())
+        .then(data=>setTestimonialData(data))
+    },[])
+
     return (
        <section className=" my-5 py-5">
            <div className="container">

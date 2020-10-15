@@ -38,9 +38,9 @@ const Dashboard = () => {
                 <div className="col-md-2 col-sm-4 side-style">
                     <Sidebar className="side-style" />
                 </div>
-                <div className="col-md-6 mx-auto col-sm-5 list-style">
+                {/* <div className="col-md-6 mx-auto col-sm-5 list-style">
                     <Order className="list-style"/>
-                </div>
+                </div> */}
                 
             </div>
             

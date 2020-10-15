@@ -30,7 +30,7 @@ const ServiceList = () => {
                 service.map(eventList=>
                 
 
-                <div className="card mb-3 col-sm-10 col-md-5  ml-5 mt-5" >
+                <div className="card mb-3 col-sm-10 col-md-5  ml-5 mt-5 d-flex align-items-center" >
                     <div className="row g-0 ">
                     <div className="col-md-6">
                         <img src={`http://localhost:4000/${eventList.image}`}  alt="" className="w-50"/>
